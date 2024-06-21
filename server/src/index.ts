@@ -1,14 +1,24 @@
 import express, {Application,Request,Response,NextFunction} from "express"
 import mongoose from "mongoose";
 import dotenv from "dotenv"
+import router from "./routes";
+import cors from "cors"
 
 const app : Application = express();
 dotenv.config();
 const PORT = 3000
 const URI : string = process.env.DATABASE_URI || "mongodb://localhost:27018/"
-
+app.use(
+  cors({
+    credentials: true,
+    origin: "http://localhost:5173/",
+  })
+);
 
 app.use(express.json())
+
+
+app.use('/api', router)
 
 app.listen(3000,async()=>{
     try {

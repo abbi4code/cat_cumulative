@@ -11,10 +11,14 @@ const UserSchema = new mongoose.Schema({
         required: true,
         
     },
-    fullname: {
+    name: {
         type: String,
         required: true,
         unique: true
+    },
+    scoreinfo:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Clgscore"
     }
 })
 
