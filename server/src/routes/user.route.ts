@@ -40,7 +40,7 @@ router.post("/signup", async (req : Request, res: Response) => {
     res.status(404).json({msg: "error while signup"})
   }
 });
-router.post("/signin", async(req, res) => {
+router.post("/signin", async(req: Request, res: Response) => {
     const { email, password} = req.body;
 
   try {
